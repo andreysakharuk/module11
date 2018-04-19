@@ -12,6 +12,7 @@ public class Sortable {
     public ArrayList<PrintedEdition> sort(ArrayList<PrintedEdition> list, Comparator<PrintedEdition> comp) {
         Set<PrintedEdition> foundList = new TreeSet<PrintedEdition>(comp);
         ArrayList<PrintedEdition> tr = new ArrayList<PrintedEdition>();
+        //Collections.sort(list, comp);
         for (PrintedEdition pe : list) {
             foundList.add(pe);
         }
