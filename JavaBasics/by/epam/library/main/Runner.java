@@ -32,27 +32,27 @@ public class Runner {
         ArrayList<PrintedEdition> listOfEditionsDefault = library.getLibrary();
 
         FindAction findAction = new FindAction();
-        ArrayList<PrintedEdition> ListOfEditionsFoundByAuthor = findAction.find(listOfEditionsDefault, new FindByAuthor("Даль"));
-        ArrayList<PrintedEdition> ListOfEditionsFoundByPrice = findAction.find(listOfEditionsDefault, new FindByPrice(120));
+        ArrayList<PrintedEdition> listOfEditionsFoundByAuthor = findAction.find(listOfEditionsDefault, new FindByAuthor("Даль"));
+        ArrayList<PrintedEdition> listOfEditionsFoundByPrice = findAction.find(listOfEditionsDefault, new FindByPrice(120));
 
         ViewAction viewAction = new ViewAction();
         System.out.println("--------- Список всех книг в виде таблицы -----------------------------------------------");
         viewAction.print(listOfEditionsDefault, new PrintAsTable());
         System.out.println("--------- Список книг с ценой '120' в виде списка ---------------------------------------");
-        viewAction.print(ListOfEditionsFoundByPrice, new PrintAsList());
+        viewAction.print(listOfEditionsFoundByPrice, new PrintAsList());
         System.out.println("--------- Список книг с автором 'Даль' в виде таблицы -----------------------------------");
-        viewAction.print(ListOfEditionsFoundByAuthor, new PrintAsTable());
+        viewAction.print(listOfEditionsFoundByAuthor, new PrintAsTable());
 
         PrintedEditionNameComparator comparatorName = new PrintedEditionNameComparator();
         Sortable sortable = new Sortable();
-        ArrayList<PrintedEdition> ListOfEditionsFoundByAuthorSorted = sortable.sort(ListOfEditionsFoundByAuthor, comparatorName);
+        ArrayList<PrintedEdition> listOfEditionsFoundByAuthorSorted = sortable.sort(listOfEditionsFoundByAuthor, comparatorName);
         System.out.println("--------- Список книг с автором 'Даль' отсортированных по 'Названию' в виде таблицы -----");
-        viewAction.print(ListOfEditionsFoundByAuthorSorted, new PrintAsTable());
+        viewAction.print(listOfEditionsFoundByAuthorSorted, new PrintAsTable());
 
         PrintedEditionPriceComparator comparatorPrice = new PrintedEditionPriceComparator();
         System.out.println("--------- Список книг с автором 'Даль' отсортированных по 'Цене' в виде таблицы ---------");
-        ArrayList<PrintedEdition> ListOfEditionsFoundByPriceSorted = sortable.sort(ListOfEditionsFoundByAuthor, comparatorPrice);
-        viewAction.print(ListOfEditionsFoundByPriceSorted, new PrintAsTable());
+        ArrayList<PrintedEdition> listOfEditionsFoundByPriceSorted = sortable.sort(listOfEditionsFoundByAuthor, comparatorPrice);
+        viewAction.print(listOfEditionsFoundByPriceSorted, new PrintAsTable());
     }
 }
 
